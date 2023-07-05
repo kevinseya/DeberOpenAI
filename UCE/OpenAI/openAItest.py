@@ -6,7 +6,7 @@ class Document(BaseModel):
 
 def inference(prompt: str) -> list:
     openai.organization = 'org-PYELIbA8LxpnGFiTsMHVkbOV'
-    openai.api_key = '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'
+    openai.api_key = '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'
 
     print('[PROCESANDO]'.center(40,'-'))
     completion = openai.ChatCompletion.create(
@@ -21,5 +21,7 @@ def inference(prompt: str) -> list:
     total_tokens = completion.usage.total_tokens
 
     print('[SE TERMINO DE PROCESAR]'.center(40, '-'))
-    print('[RESULTADO]'.center(40, '-') + content + "\nEl número de token es: " + str(total_tokens)+"\nEl prompt introducido es: "+prompt)
+    print('[RESULTADO]'.center(40, '-') + content +
+          "\n***El número de token es: " + str(total_tokens)+
+          "\n***El prompt introducido es: "+prompt)
     return [content, total_tokens]
